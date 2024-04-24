@@ -10,16 +10,16 @@ length=10;
 height=2;
 
 difference() {
-    translate([0, 0, -1]) linear_extrude(height+1) union() {
+    translate([0, 0, -height/2]) linear_extrude(height+0.4) union() {
         translate([radius, 0, 0]) circle(r=radius);
         translate([radius, -radius, 0]) square([length-(radius*2), width], false);
         translate([length-radius, 0, 0]) circle(r=radius);
     }
     translate([0, 0, -height/2]) linear_extrude(height) union() {
-        translate([innerRadius*2, 0, 0]) circle(r=innerRadius);
-        translate([innerRadius*2+innerRadiusPad, -(innerRadius), 0]) square([(length+innerRadiusPad)-(innerRadius*4)+extra, innerRadius*2], false);
+        translate([innerRadius*2-extra, 0, 0]) circle(r=innerRadius);
+        translate([innerRadius*2+innerRadiusPad-extra, -(innerRadius), 0]) square([(length+innerRadiusPad+extra)-(innerRadius*4)+extra, innerRadius*2], false);
         translate([length-innerRadius*2+innerRadiusPad+extra, 0, 0]) circle(r=innerRadius);
     }
-    translate([0, 0, -height/2]) cylinder(h=height+2, r=1.5);
-    translate([0, -radius, -height]) cube([radius+innerRadiusPad, width, height+1]);
+    //translate([0, 0, -height/2]) cylinder(h=height+2, r=1.5);
+    //translate([0, -radius, -height]) cube([radius+innerRadiusPad, width, height+1]);
 }

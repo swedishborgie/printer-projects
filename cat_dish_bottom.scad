@@ -14,7 +14,6 @@ translate([-5, 124-5, 0]) difference() {
 }
 
 
-
 module standoff() {
     difference() {
         cylinder(h=8, r=4);
